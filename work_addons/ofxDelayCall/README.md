@@ -1,4 +1,4 @@
-# ofxAddons
+# ofxDelayCall
 simple using 
 
 ofxDelayCall::DelayCall(3.0, [=]() {
