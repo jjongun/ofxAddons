@@ -3,7 +3,7 @@
 
 
 
-
+//생성 시점, 소멸 시점을 그저 체크 하기 위하여 로그를 찍어 놨습니다.
 ofxDelayCall::ofxDelayCall()
 {
 	//cout << " new class " << endl;
@@ -14,19 +14,11 @@ ofxDelayCall::~ofxDelayCall()
 	//cout << " delete call " << endl;
 }
 
-void ofxDelayCall::DelayCall(long interval, std::function<void()> callback)
-{
-	ofxDelayCall* call = new ofxDelayCall();
-	call->delayCall(interval, [=]() {
-		callback();
-		delete call;
-	});
-}
 
 void ofxDelayCall::StartTimer()
 {
 	//타이머 시작
-	ofAddListener(ofEvents().update, this, &ofxDelayCall::update);
+	ofAddListener(ofEvents().update,this, &ofxDelayCall::update);
 }
 
 void ofxDelayCall::StopTimer()
@@ -34,6 +26,8 @@ void ofxDelayCall::StopTimer()
 	//타이머 삭제
 	ofRemoveListener(ofEvents().update, this, &ofxDelayCall::update);
 }
+
+
 
 void ofxDelayCall::update(ofEventArgs & e)
 {
@@ -48,10 +42,25 @@ void ofxDelayCall::update(ofEventArgs & e)
 	}
 }
 
+
+
+
 void ofxDelayCall::delayCall(long interval, std::function<void()> callback)
 {
 	this->callback = callback;
 	this->interval = interval;
 	startTime = ofGetElapsedTimef();
 	StartTimer();
+}
+
+
+
+
+void ofxDelayCall::DelayCall(long interval, std::function<void()> callback)
+{
+	ofxDelayCall* call = new ofxDelayCall();
+	call->delayCall(interval, [callback,call]() {
+		callback();
+		delete call;
+	});
 }

@@ -2,7 +2,7 @@
 
 #include "ofEvents.h"
 
-class ofxDelayCall
+class ofxDelayCall 
 {
 
 private:
@@ -16,10 +16,12 @@ private:
 	void update(ofEventArgs &e);
 	void delayCall(long interval, std::function<void()> callback);
 
-public:
 	ofxDelayCall();
 	~ofxDelayCall();
-	static void DelayCall(long interval, std::function<void()> callback);
 
+public:
+	
+	static void DelayCall(long interval, std::function<void()> callback);
+	
 };
 
