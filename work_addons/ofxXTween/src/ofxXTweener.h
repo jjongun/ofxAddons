@@ -193,14 +193,11 @@ private:
 	void StopTimer(int = 100);
 	void timeElapsed(ofEventArgs &e);
 
+	void callTween(long duration, float start, float end, int draw_priority, Transition transition, Equation ease, TWEEN_CALLBACK update, DEFALUT_CALLBACK complete);
 	ofxXTweener();
 	~ofxXTweener();
 
 public:
-
-	
-
-	void callTween(long duration, float start , float end , int draw_priority, Transition transition, Equation ease, TWEEN_CALLBACK update, DEFALUT_CALLBACK complete);
 
 	static void Run(long duration , float start, float end, int draw_priority, Transition transition, Equation ease, TWEEN_CALLBACK update, DEFALUT_CALLBACK complete);
 
@@ -217,47 +214,5 @@ public:
 
 
 
-class SimpleTween 
-{
-public:
-	typedef function<void(float)> TweenUpdateType;
-
-private:
-	TweenUpdateType _callbackUpdateFunc;
-	int _transition;
-	int _equation;
-	int _duration;
-
-	Easing *funcs[11];
-	/*QTimer runTimer;
-	QTime tick;*/
 
 
-public:
-	SimpleTween();
-	~SimpleTween();
-
-	void run(int duration, Transition transition, Equation equation, TweenUpdateType callbackUpdate);
-
-private:
-	float runEquation(int transition, int equation, float t, float b, float c, float d);
-	void timeElapsed();
-};
-
-
-
-class ofxTimer
-{
-private:
-	bool isDelayCall = false;
-	float start_time = 0;
-	float interval = 0;
-	std::function<void()> callback;
-
-public:
-	void delayCall(float interval , std::function<void()> callback);
-	void Start();
-	void Stop();
-private:
-	void update(ofEventArgs &e);
-};
