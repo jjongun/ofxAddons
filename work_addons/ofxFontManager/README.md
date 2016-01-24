@@ -1,11 +1,24 @@
 # ofxDelayCall
 simple using 
 
-ofxXTweener::Run(3.0 , 30 , 100 , 100 , Transition::BACK, Equation::EASE_IN_OUT , 
-		[](float v) {
-			ofSetColor(ofColor::red);
-			ofCircle(v, 30, 10);
-		},
-			[]() {
-			cout << "complete" << endl;
-		});
+```c++
+#include "ofxTrueTypeFontUC.h"
+#include "ofxFontManager.h"
+
+
+ofxTrueTypeFontUC* font1;
+//--------------------------------------------------------------
+void ofApp::setup(){
+	font1 = ofxFontManager::GetFont("MSNeoGothic.ttf", 30);
+}
+
+//--------------------------------------------------------------
+void ofApp::draw() {
+	if (font1 != nullptr)
+		font1->drawString("ABCD 한글", 0, 30);
+}
+```
+
+
+# Including addon
+ofxTrueTypeFontUC (https://github.com/hironishihara/ofxTrueTypeFontUC)
