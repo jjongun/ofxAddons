@@ -29,4 +29,4 @@ You should copy font file in " app/data/font " .
 
 
 ## Already including addon source code
-ofxTrueTypeFontUC (https://github.com/hironishihara/ofxTrueTypeFontUC)
+ofxTrueTypeFontUC (https://github.com/hironishihara/ofxTrueTypeFontUC) 
