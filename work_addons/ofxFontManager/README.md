@@ -1,4 +1,4 @@
-# ofxDelayCall
+# ofxFontManager
 simple using 
 
 ```c++
@@ -18,6 +18,14 @@ void ofApp::draw() {
 		font1->drawString("ABCD 한글", 0, 30);
 }
 ```
+
+##Key point
+GetFont(...) : if exists font and size , it will get you ofxTrueTypeFontUC* object. if not exists font file , it will create font object and get you ofxTrueTypeFontUC* object.
+
+
+##Need font file
+You should copy font file in " app/data/font " .
+
 
 
 ## Including addon
