@@ -28,5 +28,5 @@ You should copy font file in " app/data/font " .
 
 
 
-## Including addon
+## Already including addon source code
 ofxTrueTypeFontUC (https://github.com/hironishihara/ofxTrueTypeFontUC)
