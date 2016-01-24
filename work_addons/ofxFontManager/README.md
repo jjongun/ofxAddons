@@ -20,5 +20,5 @@ void ofApp::draw() {
 ```
 
 
-# Including addon
+## Including addon
 ofxTrueTypeFontUC (https://github.com/hironishihara/ofxTrueTypeFontUC)
