@@ -1,6 +1,11 @@
 #include "VLCMediaPlayer.h"
 
-#pragma region MyRegion
+//
+// autor : supersc
+// inspired from : jnakanojp's ofxVLCVideoPlayer
+//
+
+#pragma region Shader for BGR to RGB
 
 #define STRINGIFY(A) #A
 string shaderstr = STRINGIFY(
@@ -63,7 +68,7 @@ void VLCMediaPlayer::setup(string path)
 	//vlc options
 	char const *vlc_argv[] = {
 		"--no-osd",
-		//"--avcodec-threads=4096" // if you want...
+		//"--avcodec-threads=1024" // if you want for high performance.
 	};
 	
 	libvlc = libvlc_new(sizeof(vlc_argv) / sizeof(*vlc_argv), vlc_argv);
@@ -91,6 +96,8 @@ void VLCMediaPlayer::setup(string path)
 	cout << "Video:length " << video_length_ms << "(ms)" << endl;
 
 	libvlc_video_set_callbacks(mediaPlayer, lockStatic, unlockStatic, displayStatic , this);
+
+	//You can change to Surface formats.
 	libvlc_video_set_format(mediaPlayer, "RV24", videoWidth, videoHeight, videoWidth * 3);
 
 	frontImage = new ofImage();
