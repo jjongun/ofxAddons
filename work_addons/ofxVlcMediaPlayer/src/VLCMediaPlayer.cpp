@@ -78,11 +78,13 @@ void VLCMediaPlayer::setup(string path)
 		return;
 	}
 
+	/*
 	if (ofFile(path).exists() == false)
 	{
 		cout << "Error : not exists video" << endl;
 		return;
 	}
+	*/
 	
 	std::filesystem::path p(path);
 	media = libvlc_media_new_path(libvlc, replace_all(p.string(), "/", "\\").c_str()); // Change to C style path string (for windows).
